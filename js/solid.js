@@ -805,10 +805,12 @@ function init() {
     let plane = new THREE.Mesh(geometry, material);
     scene.add(plane);
 
+    const size = Math.min(window.innerWidth, window.innerHeight);
+
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setClearColor(new THREE.Color(0xffffff));
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth * .5, window.innerWidth * .5, true);
+    renderer.setSize(size, size, true);
     renderer.gammaInput = true;
     renderer.gammaOutput = true;
     container.appendChild(renderer.domElement);
@@ -818,7 +820,7 @@ function init() {
 }
 
 function onWindowResize() {
-    renderer.setSize(window.innerWidth * .5, window.innerWidth * .5, true);
+    renderer.setSize(size, size, true);
 }
 
 function animate() {
