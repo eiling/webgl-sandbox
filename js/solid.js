@@ -820,6 +820,7 @@ function init() {
 }
 
 function onWindowResize() {
+    const size = Math.min(window.innerWidth, window.innerHeight);
     renderer.setSize(size, size, true);
 }
 
